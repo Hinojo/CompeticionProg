@@ -41,6 +41,7 @@ void printGrid(const vector<vector <int>> & grid, const int & fieldCounter){
         cout << endl;
     }
 }
+//%asdf
 
 int main(){
     int fieldCounter = 0;
