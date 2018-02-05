@@ -32,10 +32,10 @@ void printGrid(const vector<vector <int>> & grid, const int & fieldCounter){
     for(vector<int> v : grid){
         for(int cell : v){
             if (cell == -1){
-                cout << '*' << ' ';
+                cout << '*';
             }
             else{
-                cout << cell << ' ';
+                cout << cell;
             }
         }
         cout << endl;
@@ -52,7 +52,6 @@ int main(){
         if(HORIZONTAL_SIZE > 0 && VERTICAL_SIZE > 0){
             fieldCounter++;
             vector<vector<int>> grid(HORIZONTAL_SIZE, vector<int>(VERTICAL_SIZE, SAFE));
-            vector<point> mineList;
 
             for (int x = 0; x < HORIZONTAL_SIZE; x++){
                 for (int y = 0; y < VERTICAL_SIZE; y++){
@@ -64,13 +63,13 @@ int main(){
                         point mine;
                         mine.x = x;
                         mine.y = y;
-                        mineList.push_back (mine);
+                        updateAdjacentCells(grid, mine, HORIZONTAL_SIZE, VERTICAL_SIZE);
                     }
                 }
             }
-            for (point cell: mineList){
-                updateAdjacentCells(grid, cell, HORIZONTAL_SIZE, VERTICAL_SIZE);
-            }
+            
+                
+            
             printGrid(grid, fieldCounter);
         }
     }
