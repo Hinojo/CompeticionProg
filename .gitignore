@@ -1,2 +1,8 @@
 minesweeper.exe
 minesweeper.obj
+australianInput.txt
+australianVoting.exe
+australianVoting.obj
+*.exe
+*.txt
+*.obj
