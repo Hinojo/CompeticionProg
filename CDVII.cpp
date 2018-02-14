@@ -5,12 +5,33 @@
 #include <sstream>
 #include <iterator>
 
+const int ENTER = 1; 
+const int EXIT = 0;
+const int MAX_REGISTROS = 1000;
 
 
 using namespace std;
 
 uint32_t numero_casos;
 uint32_t precio_hora[24];
+
+class Registro_coche  {
+    public:
+    string matricula, fecha;
+    uint32_t kilometros;
+    int accion;
+
+    Registro_coche(string, string, uint32_t, int);
+};
+
+Registro_coche::Registro_coche (string mat, string fe, uint32_t km, int acc){
+    matricula = mat;
+    fecha = fe;
+    kilometros = km;
+    accion = acc;
+}
+
+vector<Registro_coche> registros(MAX_REGISTROS);
 
 int main(){
 
@@ -31,8 +52,10 @@ cout << "Numero de casos: " << numero_casos << endl;
             for (string s : results){
                 cout << "vector: " << s << endl;
             }
+
+            registros.push_back(Registro_coche(results[0],results[1],stoi(results[2]),stoi(results[3])));
         }while(line != "");
 
-        cout << "FIN" << endl;
+        
     }
 }
